@@ -15,7 +15,6 @@ class Like < ApplicationRecord
         foreign_key: :liker_id, 
         class_name: :User
 
-
     belongs_to :chirp, 
         primary_key: :id, 
         foreign_key: :chirp_id,

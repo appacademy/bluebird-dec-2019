@@ -38,7 +38,7 @@
 
   chirp6 = Chirp.create!(author_id: dumbledore.id, body: "Words are, in my not-so-humble opinion, our most inexhaustible source of magic.")
   chirp7 = Chirp.create!(author_id: dumbledore.id, body: "It takes a great deal of bravery to stand up to our enemies, but just as much to stand up to our friends.")
-  chirp8 = Chirp.create!(author_id: dumbledore.id, body: "It is our choices, Harry, that show what we truly are, far more than our abilities.")
+  chirp8 = Chirp.create!(author_id: dumbledore.id, body: "It is our choices, Elliot, that show what we truly are, far more than our abilities.")
   chirp9 = Chirp.create!(author_id: dumbledore.id, body: "Happiness can be found even in the darkest of times if only one remembers to turn on the light.")
 
   chirp10 = Chirp.create!(author_id: nimbus.id, body: "Nimbus 2000s are (quite literally) flying off the shelves - get them while they're hot!")
@@ -50,10 +50,10 @@
   # Likes
 
   # Hagrid
-  Like.create!(liker_id: dean.id, chirp_id: chirp3.id)
-  Like.create!(liker_id: dean.id, chirp_id: chirp4.id)
-  Like.create!(liker_id: dean.id, chirp_id: chirp5.id)
-  Like.create!(liker_id: dean.id, chirp_id: chirp6.id)
+  Like.create!(liker_id: hagrid.id, chirp_id: chirp3.id)
+  Like.create!(liker_id: hagrid.id, chirp_id: chirp4.id)
+  Like.create!(liker_id: hagrid.id, chirp_id: chirp5.id)
+  Like.create!(liker_id: hagrid.id, chirp_id: chirp6.id)
   Like.create!(liker_id: dean.id, chirp_id: chirp7.id)
   Like.create!(liker_id: dean.id, chirp_id: chirp8.id)
   Like.create!(liker_id: dean.id, chirp_id: chirp9.id)
@@ -76,7 +76,7 @@
   Like.create!(liker_id: hermione.id, chirp_id: chirp5.id)
 
   # Ron
-  Like.create!(liker_id: ryan.id, chirp_id: chirp3.id)
+  Like.create!(liker_id: ron.id, chirp_id: chirp3.id)
   Like.create!(liker_id: ryan.id, chirp_id: chirp10.id)
 
   # Dumbledore
@@ -89,7 +89,7 @@
   Like.create!(liker_id: dumbledore.id, chirp_id: chirp9.id)
 
   # Draco
-  Like.create!(liker_id: charlos.id, chirp_id: chirp10.id)
+  Like.create!(liker_id: draco.id, chirp_id: chirp10.id)
   Like.create!(liker_id: charlos.id, chirp_id: chirp12.id)
 
   # Comments

@@ -25,7 +25,7 @@ class Chirp < ApplicationRecord
 
     has_many :likers,
         through: :likes,
-        source: :user
+        source: :liker
     
     has_many :comments, 
         foreign_key: :chirp_id, 
@@ -52,12 +52,14 @@ class Chirp < ApplicationRecord
 # FROM 
 #   chirps JOIN users ON chirps.author_id = users.id
 # WHERE 
-#   users.username = "Harry Potter"
+#   users.username = "Hermione Granger"
 
-    # Chirp.joins(:author).where(users: { username: "Harry Potter" })  # INCLUDESSSSS NO QUERYY USEEE THISSS AS EXAMPLE
+    # Chirp.joins(:author).where(users: { username: "Hermione Granger" })  # INCLUDESSSSS NO QUERYY USEEE THISSS AS EXAMPLE
+
+
 
 # 2. Let's now return all of the chirps liked 
-# by people politically affiliated with Gryffindor (Harry and Hermione).
+# by people politically affiliated with Gryffindor.
 # SELECT 
 #   chirps.* 
 # FROM 
@@ -173,14 +175,6 @@ class Chirp < ApplicationRecord
 
   # Chirp.joins(:likers, :author).group("users.username").where(authors_chirps: { username:  'Nimbus' }).order("num_likes DESC").pluck("users.username, COUNT(*) as num_likes")
 
-# We want to find the chirp with the most comments so we can figure 
-# out what content is getting the most engagement. Once we find that chirp 
-# we want to actually see what all the comments are and send them along to our 
-# marketing team, so they can figure out people and businesses to target ads 
-# towards and get them on our platform. How can we accomplish this? 
-# (Hint: it might take more than one query)
-
-# Comment.where(chirp_id: most_commented_chirps[0].id)
 
 
 # ===================================

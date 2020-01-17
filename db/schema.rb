@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2020_01_17_061008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", limit: 100
-    t.string "age"
+    t.integer "age"
     t.string "political_affiliation"
   end
 

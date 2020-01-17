@@ -32,8 +32,8 @@ class User < ApplicationRecord
         foreign_key: :author_id, 
         class_name: :Comment
 
-    # Warm up 
 
+  # 0. Warm up 
   # get all records
   # SELECT * FROM users
 
@@ -42,13 +42,14 @@ class User < ApplicationRecord
   # find takes in the id
   # SELECT * FROM users WHERE id = 4
 
-    # User.find(4)
+    # User.find(34)
+    # User.find(32)
 
   # find_by takes any attribute
   # SELECT * FROM users WHERE age = 11
 
-    # User.find_by(age: 11)
-    
+    # User.find_by(username: "cow_luva")
+
   # Can also use where.not 
   # SELECT * FROM users WHERE age < 100
 
@@ -63,10 +64,10 @@ class User < ApplicationRecord
     # User.where(age: 11)
   
 
-  # 2. Maybe we also want to find all the chirps about Harry?
+  # 2. Maybe we also want to find all the chirps about Elliot?
   # Take a second with your PARTNER TO DISCUSS how we can make this query
 
-  #  Chirp.where("body LIKE '%Harry%'")
+  #  Chirp.where("body LIKE '%Elliot%'")
 
 
   # 3. Let's look at what is actually returned
