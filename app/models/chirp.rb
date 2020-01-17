@@ -14,9 +14,9 @@ class Chirp < ApplicationRecord
     validate :body_too_long
 
     belongs_to :author,
-        primary_key: :id,       # always ID
+        primary_key: :id,           # always id
         foreign_key: :author_id, 
-        class_name: :User       # "User"
+        class_name: :User           # or "User"
     
     has_many :likes, 
         primary_key: :id, 
@@ -26,8 +26,10 @@ class Chirp < ApplicationRecord
     has_many :likers,
         through: :likes,
         source: :user
-
-    # don't need attr readers in rails models
+    
+    has_many :comments, 
+        foreign_key: :chirp_id, 
+        class_name: :Comment
 
     def body_too_long
         if self.body && self.body.length > 140
@@ -36,6 +38,12 @@ class Chirp < ApplicationRecord
         end
     end
 
+
+    # ======================================
+    # ===  ActiveRecord Lecture DEMO  ======
+    # ======================================
+
+    
 # 1. So suppose we're constructing our feed page, 
 # and we want to find all of the chirps for a particular user.
 # 

@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: comments
 #
-#  id                    :bigint           not null, primary key
-#  username              :string
-#  created_at            :datetime         not null
-#  updated_at            :datetime         not null
-#  email                 :string(100)
-#  age                   :string
-#  political_affiliation :string
+#  id         :bigint           not null, primary key
+#  body       :string           not null
+#  author_id  :integer          not null
+#  chirp_id   :integer          not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

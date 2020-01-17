@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_190023) do
+ActiveRecord::Schema.define(version: 2020_01_17_061008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2020_01_16_190023) do
     t.string "body", limit: 140, null: false
     t.integer "author_id", null: false
     t.index ["author_id"], name: "index_chirps_on_author_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "author_id", null: false
+    t.integer "chirp_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "likes", force: :cascade do |t|
@@ -32,6 +40,8 @@ ActiveRecord::Schema.define(version: 2020_01_16_190023) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", limit: 100
+    t.string "age"
+    t.string "political_affiliation"
   end
 
 end
