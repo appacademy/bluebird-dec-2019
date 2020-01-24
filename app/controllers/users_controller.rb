@@ -6,11 +6,16 @@ class UsersController < ApplicationController
     end 
 
     def show 
-        debugger
+        
         @user = User.find_by(id: params[:id])
         render :show 
         #cannot render and redirect
     end 
+
+    def new
+        @user = User.new
+        render :new
+    end
 
     def create
         # debugger
@@ -25,11 +30,11 @@ class UsersController < ApplicationController
 
         user = User.new(user_params)
     
-
         if user.save #saves and returns either truthy or falsey 
             #save will return false if it doesn't save
             #save! raises a validation error, and we will not reach our else condition. 
-            render json: user 
+            # render json: user 
+            redirect_to user_url(user)
             
         else 
             # debugger
@@ -39,6 +44,11 @@ class UsersController < ApplicationController
         end
 
     end
+
+    def edit
+        @user = User.find(params[:id])
+        render :edit
+    end
     
     def update
         user = User.find(params[:id])
@@ -46,7 +56,7 @@ class UsersController < ApplicationController
             # render json: user 
             #redirect_to "/users/#{user.id}" #get verb 
             #redirect_to users_url(user.id)
-            redirect_to user 
+            redirect_to user_url(user) 
         else
             render json: user.errors.full_messages, status: 422
 
@@ -54,9 +64,10 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        user = User.find_by(id: params[:id])
-        user.destroy #ActiveRecord method 
-        render json: user #we still have access to the local variable 'user'
+        @user = User.find_by(id: params[:id])
+        @user.destroy #ActiveRecord method 
+        # render json: user #we still have access to the local variable 'user'
+        redirect_to users_url
     end
 
     def user_params 
