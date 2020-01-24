@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
     def index 
-        users = User.all #User is the model. No need to require User at the top. 
-        render json: users 
+        @users = User.all #User is the model. No need to require User at the top. 
+        render :index
+        # render json: @users
     end 
 
     def show 
-        user = User.find_by(id: params[:id])
-        render json: user 
+        debugger
+        @user = User.find_by(id: params[:id])
+        render :show 
         #cannot render and redirect
     end 
 
