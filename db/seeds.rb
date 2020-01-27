@@ -9,21 +9,21 @@
   User.destroy_all
 
   # Wizards
-  angela = User.create!(username: "loves_capy", age: 11, political_affiliation: "Gryffindow", email: "chosenone@aa.io")
-  dean = User.create!(username: "dean_machine", age: 11, political_affiliation: "Slytherin", email: "deans_diary@aa.io")
-  joe = User.create!(username: "trader_joes_4lyf3", age: 11, political_affiliation: "Hufflepuff", email: "thetraderjoe@aa.io")
-  alissa = User.create!(username: "cow_luva", age: 11, political_affiliation: "Ravenclaw" , email: "cows@aa.io")
-  ryan = User.create!(username: "will_climb_rocks", age: 11, political_affiliation: "Ravenclaw" , email: "boulderz@aa.io")
-  charlos = User.create!(username: "charlos_gets_buckets", age: 11, political_affiliation: "Gryffindow", email: "ballin@aa.io")
-  elliot = User.create!(username: "all_knowing_elliot", age: 11, political_affiliation: "Gryffindor", email: "those_are_teef@aa.io")
+  angela = User.create!(username: "loves_capy", age: 11, political_affiliation: "Gryffindow", email: "chosenone@aa.io",password: "password")
+  dean = User.create!(username: "dean_machine", age: 11, political_affiliation: "Slytherin", email: "deans_diary@aa.io",password: "password")
+  joe = User.create!(username: "trader_joes_4lyf3", age: 11, political_affiliation: "Hufflepuff", email: "thetraderjoe@aa.io",password: "password")
+  alissa = User.create!(username: "cow_luva", age: 11, political_affiliation: "Ravenclaw" , email: "cows@aa.io",password: "password")
+  ryan = User.create!(username: "will_climb_rocks", age: 11, political_affiliation: "Ravenclaw" , email: "boulderz@aa.io",password: "password")
+  charlos = User.create!(username: "charlos_gets_buckets", age: 11, political_affiliation: "Gryffindow", email: "ballin@aa.io",password: "password")
+  elliot = User.create!(username: "all_knowing_elliot", age: 11, political_affiliation: "Gryffindor", email: "those_are_teef@aa.io",password: "password")
   
-  hagrid = User.create!(username: 'Rubeus Hagrid', age: 45, political_affiliation: "Giant", email: "hagrid@hogwarts.io")
-  harry = User.create!(username: 'Harry Potter', age: 11, political_affiliation: "Gryffindor", email: "harry@hogwarts.io")
-  hermione = User.create!(username: 'Hermione Granger', age: 11, political_affiliation: "Gryffindor", email: "hermione@hogwarts.io")
-  ron = User.create!(username: 'Ron Weasley', age: 11, political_affiliation: "Gryffindor", email: "ron@hogwarts.io")
-  dumbledore = User.create!(username: "Albus Dumbledore", age: 93, political_affiliation: "Headmaster", email: "dumbledore@hogwarts.io")
-  draco = User.create!(username: "Draco Malfoy", age: 11, political_affiliation: "Slytherin", email: "draco@hogwarts.io")
-  nimbus = User.create!(username: "Nimbus", age: 45, email: "brooms@nimbus.io")
+  hagrid = User.create!(username: 'Rubeus Hagrid', age: 45, political_affiliation: "Giant", email: "hagrid@hogwarts.io",password: "password")
+  harry = User.create!(username: 'Harry Potter', age: 11, political_affiliation: "Gryffindor", email: "harry@hogwarts.io",password: "password")
+  hermione = User.create!(username: 'Hermione Granger', age: 11, political_affiliation: "Gryffindor", email: "hermione@hogwarts.io",password: "password")
+  ron = User.create!(username: 'Ron Weasley', age: 11, political_affiliation: "Gryffindor", email: "ron@hogwarts.io",password: "password")
+  dumbledore = User.create!(username: "Albus Dumbledore", age: 93, political_affiliation: "Headmaster", email: "dumbledore@hogwarts.io",password: "password")
+  draco = User.create!(username: "Draco Malfoy", age: 11, political_affiliation: "Slytherin", email: "draco@hogwarts.io",password: "password")
+  nimbus = User.create!(username: "Nimbus", age: 45, email: "brooms@nimbus.io",password: "password")
 
   
   Chirp.destroy_all

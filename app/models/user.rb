@@ -11,8 +11,25 @@
 #  political_affiliation :string
 #
 
+#u = User.new(age: 2, email: "mimi@aa.io", username:"mimi", 
+#political_affiliation: "aa", password:"hunter12")
+# u.age = 2
+# u.email = mimi@aa.io
+# u.pa = aa
+# u.password = hunter12
+
+#mimi = User.find_by(username:"mimi")
+#mimi = mimi.update(email:"mimiparsons@aa.io")
+
 class User < ApplicationRecord
     validates :username, :email, presence: true, uniqueness: true
+    validates :session_token, presence:true, uniqueness:true
+    validates :password, length: {minimum: 6 }, allow_nil: true
+
+    #this attr_reader will return the password
+    attr_reader :password
+    before_validation :ensure_session_token
+    #after_initialize :ensure_session_token
     
     has_many :chirps, 
         primary_key: :id, 
@@ -76,4 +93,28 @@ class User < ApplicationRecord
   # User.where(username: names).is_a?(Array) 
   # User.where(username: names).class 
 
+  
+  def password=(password)
+    self.password_digest = BCrypt::Password.create(password)
+    @password = password
+  end
+  
+  def ensure_session_token
+    self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+  
+  def reset_session_token!
+    self.update!(session_token: SecureRandom.urlsafe_base64(16) )
+    self.session_token
+  end
+  
+  def self.find_by_credentials(username,password)
+    user= User.find_by(username: username)
+  
+    user && user.is_password?(password) ? user : nil
+  end
+  
+  def is_password?(password)
+    BCrypt::Password.new(self.password_digest).is_password?(password)
+  end
 end

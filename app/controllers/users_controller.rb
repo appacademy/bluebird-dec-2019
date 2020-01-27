@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :require_login, only: [:index,:show]
+    
     def index 
         @users = User.all #User is the model. No need to require User at the top. 
         render :index
@@ -33,14 +35,13 @@ class UsersController < ApplicationController
         if user.save #saves and returns either truthy or falsey 
             #save will return false if it doesn't save
             #save! raises a validation error, and we will not reach our else condition. 
-            # render json: user 
+            # render json: user
+            log_in(user)
             redirect_to user_url(user)
-            
         else 
             # debugger
             #render plain: 'no working '
-            render json: user.errors.full_messages, status: 418
-            
+            render json: user.errors.full_messages, status: 418            
         end
 
     end
@@ -71,7 +72,7 @@ class UsersController < ApplicationController
     end
 
     def user_params 
-        params.require(:user).permit(:username, :email, :age, :political_affiliation)
+        params.require(:user).permit(:username,:password,:email, :age, :political_affiliation)
     end
     
 end

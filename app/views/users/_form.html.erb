@@ -5,6 +5,7 @@
     <% action_url = user_url(user) %>
     <% button_text = "Update User" %>
 <% end %>
+
 <form action="<%= action_url %>" method="POST">
     <% if type == :edit %>
         <input type="hidden" name="_method" value="PATCH">
@@ -21,5 +22,13 @@
         <input type="text" name="user[email]" value="<%= user.email %>">
     </label>
     <br>
+
+    <% if type == :new %>
+        <label>Password:
+            <input type="password" name="user[password]" value="">
+        </label>
+        <br>
+    <% end %>
+    
     <input type="submit" value="<%= button_text %>">
 </form>
