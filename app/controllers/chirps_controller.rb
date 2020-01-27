@@ -6,6 +6,6 @@ class ChirpsController < ApplicationController
 
     def show
         chirp = Chirp.find_by(id: params[:id])
-        render json: chirp
+        render show
     end
 end
