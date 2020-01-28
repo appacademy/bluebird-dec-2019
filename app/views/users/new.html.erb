@@ -1,16 +1,28 @@
-<!-- <form action="<%= users_url %>" method="POST">
+<h1>User Sign Up</h1> 
+
+<form action="<%= users_url %>" method="POST">
+
     <label>Username:
         <input type="text" name="user[username]" value="<%= @user.username %>">
     </label>
-    <br>
+    
+    <label>Password:
+        <input type="password" name="user[password]" value="">
+    </label>
+
     <label>Age:
         <input type="text" name="user[age]" value="<%= @user.age %>">
     </label>
-    <br>
+
     <label>Email:
         <input type="text" name="user[email]" value="<%= @user.email %>">
     </label>
-    <br>
-    <input type="submit" value="Create User <3">
-</form> -->
-<%= render "form", user: @user, type: :new %>   
+
+    <input type="submit" value="Sign Up">
+</form> 
+
+
+
+
+
+<%# <%= render "form", user: @user, type: :new %>    %>
