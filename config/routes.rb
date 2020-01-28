@@ -7,9 +7,14 @@ Rails.application.routes.draw do
   # delete '/users/:id', to: 'users#destroy'
 
   resources :users do
-    resources :chirps, only:[:index]
+    resources :chirps, only: [:index]
   end
 
-  resources :chirps, only:[:show]
-  resource :session, only:[:new,:create,:destroy]
+  resources :chirps, only: [:show]
+  resource :session, only: [:new, :create, :destroy]
+
+  post "/search", to: "searches#create"
+  get "/search", to: "searches#new"
+  get "/get_searches", to: "searches#get_data"
+  
 end

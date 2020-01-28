@@ -10,9 +10,6 @@
   </head>
 
   <body>
-    <h2>
-      <a href="<%= users_url %>">All my Users</a> 
-    </h2>
 
     <% if logged_in? %>
       <h2>hello, <%= current_user.username %> </h2>
