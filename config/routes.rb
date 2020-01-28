@@ -16,5 +16,8 @@ Rails.application.routes.draw do
   post "/search", to: "searches#create"
   get "/search", to: "searches#new"
   get "/get_searches", to: "searches#get_data"
+
+  get "/set_cookie", to: "cookies_demo#set_cookie"
+  get "/get_cookie", to: "cookies_demo#get_cookie"
   
 end
