@@ -22,13 +22,14 @@
 #mimi = mimi.update(email:"mimiparsons@aa.io")
 
 class User < ApplicationRecord
-    validates :username, :email, :session_token, :password_digest, presence: true, uniqueness: true
+    validates :username, :session_token, :password_digest, presence: true, uniqueness: true
     validates :password, length: {minimum: 6 }, allow_nil: true
 
     #this attr_reader will return the password
     attr_reader :password
     # before_validation :ensure_session_token
     after_initialize :ensure_session_token
+
     
     has_many :chirps, 
         primary_key: :id, 
@@ -99,6 +100,7 @@ class User < ApplicationRecord
   end
   
   def ensure_session_token
+    # debugger
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
   
